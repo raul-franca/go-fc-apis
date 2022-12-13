@@ -6,6 +6,7 @@ require (
 	github.com/go-chi/jwtauth v1.2.0
 	github.com/google/uuid v1.1.2
 	github.com/spf13/viper v1.14.0
+	github.com/stretchr/testify v1.8.1
 	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e
 )
 
@@ -29,7 +30,6 @@ require (
 	github.com/spf13/cast v1.5.0 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/stretchr/testify v1.8.1 // indirect
 	github.com/subosito/gotenv v1.4.1 // indirect
 	golang.org/x/sys v0.0.0-20220908164124-27713097b956 // indirect
 	golang.org/x/text v0.4.0 // indirect
