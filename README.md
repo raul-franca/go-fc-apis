@@ -48,6 +48,11 @@ Modelos de arquivo de configuração ou configurações padrão.
 
 Coloque seus arquivos de modelo `confd` ou` consul-template` aqui.
 
+### `/deployments`
+
+IaaS, PaaS, configurações e modelos de implantação de orquestração de sistema e contêiner (docker-compose, kubernetes / helm, mesos, terraform, bosh). Observe que em alguns repositórios (especialmente em aplicativos implantados com kubernetes), esse diretório é denominado `/deploy`.
+
+
 ### `/test`
 
 Aplicações de testes externos adicionais e dados de teste. Sinta-se à vontade para estruturar o diretório `/test` da maneira que quiser. Para projetos maiores, faz sentido ter um subdiretório de dados. Por exemplo, você pode ter `/test/data` ou` /test/testdata` se precisar que o Go ignore o que está naquele diretório. Observe que o Go também irá ignorar diretórios ou arquivos que começam com "." ou "_", para que você tenha mais flexibilidade em termos de como nomear seu diretório de dados de teste.
