@@ -1,10 +1,34 @@
 
 
 ### Send POST request with json body
-POST http://localhost:8000/prducts
+POST http://localhost:8000/products
 Content-Type: application/json
 
 {
-  "name": "Mouse",
-  "price": 30.0
+  "name": "Motitor",
+  "price": 280.00
 }
+
+### GET list all products
+GET http://localhost:8000/products
+Accept: application/json
+
+
+### GET get product by id
+GET http://localhost:8000/products/1cb853bf-59be-4ad8-a1eb-72f7b8137345
+Accept: application/json
+
+
+### PUT update product by id
+PUT http://localhost:8000/products/5fc19b89-67ad-403c-8ee1-f6112f3dee88
+Accept: application/json
+
+{
+  "name": "Motitor LCD",
+  "price": 300.00
+}
+
+
+### DELETE product by id
+DELETE http://localhost:8000/products/c618f47a-3bc9-43a9-b212-8dba77cdbbc3
+Accept: application/json
