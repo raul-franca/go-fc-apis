@@ -1,6 +1,7 @@
 package configs
 
 import (
+	"fmt"
 	"github.com/go-chi/jwtauth"
 	"github.com/spf13/viper"
 )
@@ -27,7 +28,7 @@ func LoadConfig(path string) (*conf, error) {
 	viper.AutomaticEnv()
 	err := viper.ReadInConfig()
 	if err != nil {
-		panic(err)
+		panic(fmt.Sprintf("failed to load config file, error: %v", err))
 	}
 	err = viper.Unmarshal(&cfg)
 	if err != nil {
