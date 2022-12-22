@@ -1,0 +1,10 @@
+
+### Send POST add new user
+POST http://localhost:8000/users
+Content-Type: application/json
+
+{
+  "name": "Raul",
+  "email":"raul@email.com",
+  "password": "123456"
+}
