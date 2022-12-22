@@ -1,6 +1,6 @@
 
 
-### Send POST request with json body
+### Send POST request add product
 POST http://localhost:8000/products
 Content-Type: application/json
 
