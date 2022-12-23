@@ -15,7 +15,7 @@ import (
 
 func main() {
 
-	_, err := configs.LoadConfig(".")
+	config, err := configs.LoadConfig(".")
 	if err != nil {
 		panic(fmt.Sprintf("failed to load config file, error: %v", err))
 	}
@@ -31,7 +31,7 @@ func main() {
 	productHandler := handlers.NewProductHandler(productDB)
 
 	userDB := database.NewUser(db)
-	userHandler := handlers.NewUserHadler(userDB)
+	userHandler := handlers.NewUserHadler(userDB, config.TokenAuth, config.JwtExperesIn)
 
 	//router
 	r := chi.NewRouter()
@@ -45,6 +45,7 @@ func main() {
 	})
 	r.Route("/users", func(r chi.Router) {
 		r.Post("/", userHandler.Create)
+		r.Get("/generete_token", userHandler.GetJWT)
 	})
 	http.ListenAndServe(":8000", r)
 }

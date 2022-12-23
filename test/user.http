@@ -8,3 +8,14 @@ Content-Type: application/json
   "email":"raul@email.com",
   "password": "123456"
 }
+
+
+### Get token
+# https://jwt.io link para testar o token
+GET http://localhost:8000/users/generete_token
+Content-Type: application/json
+
+{
+  "email":"raul@email.com",
+  "password": "123456"
+}
