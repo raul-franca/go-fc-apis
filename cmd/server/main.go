@@ -14,6 +14,24 @@ import (
 	"net/http"
 )
 
+// @title           go-fc-api
+// @version         1.0
+// @description     Modulo API do curso full cycle
+// @termsOfService  http://swagger.io/terms/
+
+// @contact.name   Raul França
+// @contact.url    https://github.com/raul-franca
+// @contact.email  raulmfranca@gmail.com
+
+// @license.name  Name License
+// @license.url   https://github.com/raul-franca
+
+// @host      localhost:8000
+// @BasePath  /
+// @securityDefinitions.apikey ApiKeyAuth
+// @in header
+// @name Authorization
+
 func main() {
 
 	config, err := configs.LoadConfig(".")
