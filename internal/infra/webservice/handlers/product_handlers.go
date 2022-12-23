@@ -4,13 +4,45 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/jwtauth"
 	"github.com/raul-franca/go-fc-apis/internal/dto"
 	"github.com/raul-franca/go-fc-apis/internal/entity"
 	"github.com/raul-franca/go-fc-apis/internal/infra/database"
 	entityPkg "github.com/raul-franca/go-fc-apis/pkg/entity"
 	"net/http"
 	"strconv"
+	"time"
 )
+
+func (h *UserHandler) GetJWT(w http.ResponseWriter, r *http.Request) {
+	jwt := r.Context().Value("jwt").(*jwtauth.JWTAuth)
+	jwtExpiresIn := r.Context().Value("JwtExperesIn").(int)
+	var user dto.GetJWTInput
+	err := json.NewDecoder(r.Body).Decode(&user)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+	u, err := h.UserDB.FindByEmail(user.Email)
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
+		err := Error{Message: err.Error()}
+		json.NewEncoder(w).Encode(err)
+		return
+	}
+	if !u.ValidatePassword(user.Password) {
+		w.WriteHeader(http.StatusUnauthorized)
+		return
+	}
+	_, tokenString, _ := jwt.Encode(map[string]interface{}{
+		"sub": u.ID.String(),
+		"exp": time.Now().Add(time.Second * time.Duration(jwtExpiresIn)).Unix(),
+	})
+	accessToken := dto.GetJWTOutput{AccessToken: tokenString}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(accessToken)
+}
 
 type ProductHandler struct {
 	ProductDB database.ProductInterface
