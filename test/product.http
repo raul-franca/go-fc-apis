@@ -12,6 +12,7 @@ Content-Type: application/json
 ### GET list all products
 GET http://localhost:8000/products
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzE3NzE1NTcsInN1YiI6ImE4Mzk1NGY3LTE1MzMtNGE2Mi04MWFjLWYxMjFkZWU5NDU1NiJ9.tc0EA7sGysszbtjHLu6TgGUWU2IZnW-CpYOxdIJdmNc
 
 
 ### GET get product by id
