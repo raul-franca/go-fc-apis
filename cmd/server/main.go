@@ -6,9 +6,11 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/jwtauth"
 	"github.com/raul-franca/go-fc-apis/configs"
+	_ "github.com/raul-franca/go-fc-apis/docs"
 	"github.com/raul-franca/go-fc-apis/internal/entity"
 	"github.com/raul-franca/go-fc-apis/internal/infra/database"
 	"github.com/raul-franca/go-fc-apis/internal/infra/webservice/handlers"
+	httpSwagger "github.com/swaggo/http-swagger"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"net/http"
@@ -31,7 +33,6 @@ import (
 // @securityDefinitions.apikey ApiKeyAuth
 // @in header
 // @name Authorization
-
 func main() {
 
 	config, err := configs.LoadConfig(".")
@@ -60,16 +61,16 @@ func main() {
 	r.Use(middleware.WithValue("JwtExperesIn", config.JwtExperesIn))
 	r.Route("/products", func(r chi.Router) {
 		r.Use(jwtauth.Verifier(config.TokenAuth))
-		r.Use(jwtauth.Authenticator)
+		//r.Use(jwtauth.Authenticator)
 		r.Post("/", productHandler.CreateProduct)
 		r.Get("/", productHandler.GetProducts)
 		r.Get("/{id}", productHandler.GetProduct)
 		r.Put("/{id}", productHandler.UpdateProduct)
 		r.Delete("/{id}", productHandler.DeleteProduct)
 	})
-	r.Route("/users", func(r chi.Router) {
-		r.Post("/", userHandler.Create)
-		r.Get("/generete_token", userHandler.GetJWT)
-	})
+	r.Post("/users", userHandler.Create)
+	r.Post("/users/generate_token", userHandler.GetJWT)
+
+	r.Get("/docs/*", httpSwagger.Handler(httpSwagger.URL("http://localhost:8000/docs/doc.json")))
 	http.ListenAndServe(":8000", r)
 }

@@ -1,3 +1,6 @@
 mkdir api cmd configs internal pkg test deployments
 go mod init "github.com/raul-franca/go-fc-apis"
 
+exec na pasta root para criar
+swag init -g cmd/server/main.go
+
