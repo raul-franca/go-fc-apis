@@ -19,6 +19,7 @@ import (
 // @title           go-fc-api
 // @version         1.0
 // @description     Modulo API do curso full cycle
+// @description     !!!  Lembrar do Bearer no authorizations !!!
 // @termsOfService  http://swagger.io/terms/
 
 // @contact.name   Raul França
@@ -61,7 +62,7 @@ func main() {
 	r.Use(middleware.WithValue("JwtExperesIn", config.JwtExperesIn))
 	r.Route("/products", func(r chi.Router) {
 		r.Use(jwtauth.Verifier(config.TokenAuth))
-		//r.Use(jwtauth.Authenticator)
+		r.Use(jwtauth.Authenticator)
 		r.Post("/", productHandler.CreateProduct)
 		r.Get("/", productHandler.GetProducts)
 		r.Get("/{id}", productHandler.GetProduct)

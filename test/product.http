@@ -12,8 +12,7 @@ Content-Type: application/json
 ### GET list all products
 GET http://localhost:8000/products
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzE3NzE1NTcsInN1YiI6ImE4Mzk1NGY3LTE1MzMtNGE2Mi04MWFjLWYxMjFkZWU5NDU1NiJ9.tc0EA7sGysszbtjHLu6TgGUWU2IZnW-CpYOxdIJdmNc
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzE5MzQ5NTQsInN1YiI6IjNlZjZkNDkxLWU2MjMtNGY1Yy05NmFkLTg5NTEyOTIzZmNmNiJ9.Ipzd5_qHCiled-3s8XdJEghi3VpcmR9oYmqKAVFIkrw
 
 ### GET get product by id
 GET http://localhost:8000/products/1cb853bf-59be-4ad8-a1eb-72f7b8137345

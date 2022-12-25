@@ -430,7 +430,7 @@ var SwaggerInfo = &swag.Spec{
 	BasePath:         "/",
 	Schemes:          []string{},
 	Title:            "go-fc-api",
-	Description:      "Modulo API do curso full cycle",
+	Description:      "Modulo API do curso full cycle\n!!!  Lembrar do Bearer no authorizations !!!",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 }

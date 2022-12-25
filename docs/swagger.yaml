@@ -50,7 +50,9 @@ info:
     email: raulmfranca@gmail.com
     name: Raul França
     url: https://github.com/raul-franca
-  description: Modulo API do curso full cycle
+  description: |-
+    Modulo API do curso full cycle
+    !!!  Lembrar do Bearer no authorizations !!!
   license:
     name: Name License
     url: https://github.com/raul-franca

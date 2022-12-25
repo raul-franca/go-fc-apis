@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Modulo API do curso full cycle",
+        "description": "Modulo API do curso full cycle\n!!!  Lembrar do Bearer no authorizations !!!",
         "title": "go-fc-api",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
