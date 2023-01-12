@@ -4,3 +4,4 @@ go mod init "github.com/raul-franca/go-fc-apis"
 exec na pasta root para criar
 swag init -g cmd/server/main.go
 
+URL da documentação: http://localhost:8000/docs/index.html
